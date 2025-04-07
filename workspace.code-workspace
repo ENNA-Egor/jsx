@@ -1,0 +1,43 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"adobeScriptRunner.winAfterEffectsExe": "C:/Program Files/Adobe/Adobe After Effects 2023/Support Files/AfterFX.exe"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+
+			{
+				"type": "extendscript-debug",
+				"request": "attach",
+				"name": "Attach to ExtendScript Engine"
+			},
+			{
+				"type": "extendscript-debug",
+				"request": "launch",
+				"name": "Launch Script in ExtendScript Engine"
+			},
+		// 	{
+      //       "type": "extendscript-debug",
+      //       "request": "attach",
+      //       "name": "Attach to After Effects",
+      //       "hostAppSpecifier": "aftereffects"
+      //   }
+		{
+			"type": "extendscript-debug",
+            "request": "launch",
+            "name": "Debug in After Effects",
+            // "program": "${file}", // Текущий открытый файл
+            "hostAppSpecifier": "aftereffects", // Или "premiere", "photoshop" и т.д.
+            // "stopOnEntry": false // Останавливаться при запуске скрипта или нет
+		}
+		]
+	},
+
+
+	
+}
