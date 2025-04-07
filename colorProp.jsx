@@ -68,22 +68,14 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
   }
 
   if (propertyGroup.numProperties) {
-    // console.log(propertyGroup.numProperties)
     for (var k = 1; k <= propertyGroup.numProperties; k++) {
       var prop = propertyGroup.property(k);
-    // console.log("NameGroup " +propertyGroup.property(k).name)
-    // console.log(propertyGroup.property(k).numProperties)
-    // if (propertyGroup.property(k).name =="Contents"){
-    //   console.log(propertyGroup.property(k).numProperties)
       for (var n= 1; n<= propertyGroup.property(k).numProperties; n++){
-        // console.log(propertyGroup.property(k).property(n).name)
-        // console.log(propertyGroup.property(k).property(n).numProperties)
         var cont = propertyGroup.property(k).property(n).numProperties
          for (m=1; m<= cont; m++){
-            // console.log(propertyGroup.property(k).property(n).property(m).name)
             var contentName = propertyGroup.property(k).property(n).property(m).name
             if (contentName == "Color"){
-                // console.log (propertyGroup.property(k).property(n).property(m).value)
+                console.log (propertyGroup.property(k).property(n).property(m).value)
             }
          }
       }
