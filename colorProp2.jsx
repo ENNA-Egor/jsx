@@ -25,10 +25,17 @@ function getAllColorValues() {
 }
 
 function getColorValuesFromLayer(layer, colorValues) {
-  getColorValuesFromProperties(layer, layer, colorValues); // Начинаем с самого слоя
+  if (layer.numProperties){
+    for(var n=1; n<=layer.numProperties; n++){
+      getColorValuesFromProperties(layer, layer.property(n), colorValues); // Начинаем с самого слоя
+    }
+  }
 }
 
 function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
+        //  console.log (layer)
+        //  console.log (propertyGroup)
+         console.log (propertyGroup.name)
   if (!propertyGroup) {
     return;
   }
@@ -36,14 +43,14 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
   if (propertyGroup.numProperties) {
     for (var k = 1; k <= propertyGroup.numProperties; k++) {
       var prop = propertyGroup.property(k);
-
+    console.log (prop.name)
       if (!prop) {
         console.warn("Обнаружено null-свойство. Пропускаем.");
         continue;
       }
 
       // Отладочная информация:
-      console.log("  Имя свойства: " + prop.name + ", Тип свойства: " + prop.propertyType + ", Тип значения: " + prop.propertyValueType);
+      // console.log("  Имя свойства: " + prop.name + ", Тип свойства: " + prop.propertyType + ", Тип значения: " + prop.propertyValueType);
 
       if (prop.propertyValueType === PropertyValueType.COLOR) {
          // console.log (prop.propertyValueType)
