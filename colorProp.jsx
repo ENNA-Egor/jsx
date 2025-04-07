@@ -75,18 +75,18 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
     // console.log(propertyGroup.property(k).numProperties)
     // if (propertyGroup.property(k).name =="Contents"){
     //   console.log(propertyGroup.property(k).numProperties)
-    //   for (var n= 1; n<= propertyGroup.property(k).numProperties; n++){
-    //     console.log(propertyGroup.property(k).property(n).name)
-    //     console.log(propertyGroup.property(k).property(n).numProperties)
-    //     var cont = propertyGroup.property(k).property(n).numProperties
-    //      for (m=1; m<= cont; m++){
-    //         // console.log(propertyGroup.property(k).property(n).property(m).name)
-    //         var contentName = propertyGroup.property(k).property(n).property(m).name
-    //         if (contentName == "Color"){
-    //             console.log (propertyGroup.property(k).property(n).property(m).value)
-    //         }
-    //      }
-    //   }
+      for (var n= 1; n<= propertyGroup.property(k).numProperties; n++){
+        // console.log(propertyGroup.property(k).property(n).name)
+        // console.log(propertyGroup.property(k).property(n).numProperties)
+        var cont = propertyGroup.property(k).property(n).numProperties
+         for (m=1; m<= cont; m++){
+            // console.log(propertyGroup.property(k).property(n).property(m).name)
+            var contentName = propertyGroup.property(k).property(n).property(m).name
+            if (contentName == "Color"){
+                console.log (propertyGroup.property(k).property(n).property(m).value)
+            }
+         }
+      }
     // }
     // console.log(propertyGroup.Contents.property(2).name)
     // console.log(propertyGroup.Contents.property(2).numProperties)
@@ -112,23 +112,27 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
 
 // Функция для поиска свойства по имени (рекурсивно)
 function findPropertyByName(propertyGroup, propertyName) {
+  console.log(propertyGroup.name)
+  console.log("propertyName  "+propertyName)
   if (!propertyGroup || !propertyGroup.numProperties) {
     return null;
   }
 
   for (var i = 1; i <= propertyGroup.numProperties; i++) {
+    console.log( propertyGroup.numProperties)
     var prop = propertyGroup.property(i);
-    console.log( prop.name)
+    console.log( prop)
     if (!prop) continue; // Пропускаем null properties
 
     if (prop.name === propertyName) {
     console.log( prop)
-    console.log( prop.propertyType)
-    console.log( PropertyType.PROPERTY)
+    console.log( prop.propertyType.valueOf())
+    console.log( PropertyType.PROPERTY.valueOf())
+    console.log(prop.canSetEnabled)
       return prop;
     }
 
-    if (prop.propertyType == PropertyType.PROPERTY) {
+    if (prop.canSetEnabled) {
       var found = findPropertyByName(prop, propertyName);
       if (found) {
         return found;
