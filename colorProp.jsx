@@ -50,7 +50,7 @@ function getColorValuesFromLayer(layer, colorValues) {
   }
   if (contents) {
     for (var i=1; i<=n; i++){
-    // console.log(contents(i).name)
+    console.log(contents(i).name)
     getColorValuesFromProperties(layer, contents(i), colorValues);    
     }
   }
@@ -68,7 +68,7 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
   }
 
   if (propertyGroup.numProperties) {
-    console.log(propertyGroup.numProperties)
+    // console.log(propertyGroup.numProperties)
     for (var k = 1; k <= propertyGroup.numProperties; k++) {
       var prop = propertyGroup.property(k);
     // console.log("NameGroup " +propertyGroup.property(k).name)
@@ -83,7 +83,7 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
             // console.log(propertyGroup.property(k).property(n).property(m).name)
             var contentName = propertyGroup.property(k).property(n).property(m).name
             if (contentName == "Color"){
-                console.log (propertyGroup.property(k).property(n).property(m).value)
+                // console.log (propertyGroup.property(k).property(n).property(m).value)
             }
          }
       }
@@ -104,6 +104,8 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
       }
 
       if (prop.propertyType == PropertyType.PROPERTY) {
+         console.log("1 "+ prop.propertyType.valueOf())
+         console.log("2 "+ PropertyType.PROPERTY.valueOf())
         getColorValuesFromProperties(layer, prop, colorValues);
       }
     }
@@ -119,16 +121,16 @@ function findPropertyByName(propertyGroup, propertyName) {
   }
 
   for (var i = 1; i <= propertyGroup.numProperties; i++) {
-    console.log( propertyGroup.numProperties)
+    // console.log( propertyGroup.numProperties)
     var prop = propertyGroup.property(i);
-    console.log( prop)
+    // console.log( prop)
     if (!prop) continue; // Пропускаем null properties
 
     if (prop.name === propertyName) {
-    console.log( prop)
-    console.log( prop.propertyType.valueOf())
-    console.log( PropertyType.PROPERTY.valueOf())
-    console.log(prop.canSetEnabled)
+    // console.log( prop)
+    // console.log( prop.propertyType.valueOf())
+    // console.log( PropertyType.PROPERTY.valueOf())
+    // console.log(prop.canSetEnabled)
       return prop;
     }
 
