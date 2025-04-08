@@ -27,13 +27,14 @@ function getAllColorValues() {
   }
 
   if (colorValues.length > 0) {
-    console.log("Найдены следующие значения цветов:");
+    // console.log("Найдены следующие значения цветов:");
     for (var i = 0; i < colorValues.length; i++) {
       var colorInfo = colorValues[i];
       var colorValue = colorValues[i].value;
-      console.log("  Layer: " + colorInfo.layerName + ", Property: " + colorInfo.propertyName );
-      // console.log( colorValue);
-      console.log("  Layer: " + colorInfo.layerName + ", Property: " + colorInfo.propertyName  + ", Color: " + colorValue.toString());
+      // console.log("  Layer: " + colorInfo.layerName + ", Property: " + colorInfo.propertyName );
+      // // console.log( colorValue);
+      // console.log("  Layer: " + colorInfo.layerName + ", Property: " + colorInfo.propertyName  + ", Color: " + colorValue.toString());
+      console.log( colorValue.toString());
       // console.log("  Layer: " + colorInfo.layerName + ", Property: " + colorInfo.propertyName  + `, Color:  ${colorValue}`);
     }
   } else {
@@ -44,13 +45,15 @@ function getAllColorValues() {
 function getColorValuesFromLayer(layer, colorValues) {
   // Ищем свойство Contents
   var contents = findPropertyByName(layer, "Contents");
-  if (contents == null){console.log(contents)
-  }else {console.log(contents.numProperties)
+  if (contents == null){
+    // console.log(contents)
+  }else {
+    // console.log(contents.numProperties)
   var n = contents.numProperties
   }
   if (contents) {
     for (var i=1; i<=n; i++){
-    console.log(contents(i).name)
+    // console.log(contents(i).name)
     getColorValuesFromProperties(layer, contents(i), colorValues);    
     }
   }
@@ -96,8 +99,8 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
       }
 
       if (prop.propertyType == PropertyType.PROPERTY) {
-         console.log("1 "+ prop.propertyType.valueOf())
-         console.log("2 "+ PropertyType.PROPERTY.valueOf())
+        //  console.log("1 "+ prop.propertyType.valueOf())
+        //  console.log("2 "+ PropertyType.PROPERTY.valueOf())
         getColorValuesFromProperties(layer, prop, colorValues);
       }
     }
@@ -106,8 +109,8 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
 
 // Функция для поиска свойства по имени (рекурсивно)
 function findPropertyByName(propertyGroup, propertyName) {
-  console.log(propertyGroup.name)
-  console.log("propertyName  "+propertyName)
+  // console.log(propertyGroup.name)
+  // console.log("propertyName  "+propertyName)
   if (!propertyGroup || !propertyGroup.numProperties) {
     return null;
   }

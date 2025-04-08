@@ -44,6 +44,7 @@ function getColorValuesFromProperties(layer, propertyGroup, colorValues) {
     for (var k = 1; k <= propertyGroup.numProperties; k++) {
       var prop = propertyGroup.property(k);
     console.log (prop.name)
+    console.log (prop.value)
       if (!prop) {
         console.warn("Обнаружено null-свойство. Пропускаем.");
         continue;
