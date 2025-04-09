@@ -1,6 +1,4 @@
 function getSolidLayerColor(layer) {
-  //  console.log(layer instanceof SolidSource)
-  //  console.log("layer.source.typeName: " + layer.source.typeName)
   // Проверяем, что слой является слоем Solid
   if (layer instanceof AVLayer && layer.source.typeName == "Footage") {
     // Получаем цвет Solid слоя
@@ -21,8 +19,15 @@ function main() {
     return;
   }
 
+  var colorValues = [];
+
+  for (var i = 1; i <= comp.numLayers; i++) {
+    var layer = comp.layer(i);
+    
+  // }
+
   // Получаем активный слой (или любой другой слой по индексу)
-  var layer = comp.selectedLayers[0]; // Получаем первый выделенный слой
+  // var layer = comp.selectedLayers[0]; // Получаем первый выделенный слой
 
   if (!layer) {
     alert("Пожалуйста, выберите Solid слой.");
@@ -43,6 +48,7 @@ function main() {
   } else {
     alert("Выбранный слой не является Solid слоем.");
   }
+}
 }
 
 main();
