@@ -1,10 +1,10 @@
 function getSolidLayerColor(layer) {
-   console.log(layer.source instanceof SolidSource)
-   console.log("layer.source.typeName: " + layer.source.typeName)
+  //  console.log(layer instanceof SolidSource)
+  //  console.log("layer.source.typeName: " + layer.source.typeName)
   // Проверяем, что слой является слоем Solid
-  if (layer instanceof AVLayer && layer.source instanceof SolidSource) {
+  if (layer instanceof AVLayer && layer.source.typeName == "Footage") {
     // Получаем цвет Solid слоя
-    var color = layer.source.color;
+    var color = layer.source.mainSource.color;
     return color;
   } else {
     // Если это не Solid слой, возвращаем null или выдаем ошибку
@@ -32,7 +32,7 @@ function main() {
   var solidColor = getSolidLayerColor(layer);
 
   if (solidColor) {
-    console.log("Цвет Solid слоя: " + solidColor); // Выводим цвет в консоль
+    // console.log("Цвет Solid слоя: " + solidColor.toString()); // Выводим цвет в консоль
     // solidColor - это массив [red, green, blue] (значения от 0 до 1)
     var red = solidColor[0];
     var green = solidColor[1];
