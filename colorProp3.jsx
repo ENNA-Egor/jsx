@@ -20,7 +20,7 @@ function getColorValuesFromContents(layer, contents, colorValues) {
     var contentItem = contents.property(i);
     console.log("getColorValuesFromContents: contentItem.name = " + contentItem.name); // ADDED
     // Проверяем, является ли это "Group 1" (или "Shape 1" или что-то подобное)
-    if (contentItem.name.indexOf("Group") === 0 || contentItem.name.indexOf("Shape") === 0) {
+    if (contentItem.name.indexOf("Group") === 0 || contentItem.name("Shape") === 0) {
       console.log("getColorValuesFromContents: Found Group/Shape: " + contentItem.name); // ADDED
       getColorValuesFromGroup(layer, contentItem, colorValues);
     }
