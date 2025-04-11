@@ -1,6 +1,6 @@
 function getSolidLayerColor(layer) {
   // Проверяем, что слой является слоем Solid
-  if (layer instanceof AVLayer && layer.source.typeName == "Footage") {
+  if (layer instanceof AVLayer && layer.source.typeName == "Footage" && layer.adjustmentLayer == false) {
     // Получаем цвет Solid слоя
     var color = layer.source.mainSource.color;
     return color;

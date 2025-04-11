@@ -10,6 +10,9 @@ if (!comp) {
 
     console.log  (comp.selectedLayers[0].name);
     console.log  (comp.selectedLayers[0].source);
+    console.log  (comp.selectedLayers[0].source.typeName);
+    console.log  (comp.selectedLayers[0].source.hasVideo);
+    console.log  (comp.selectedLayers[0].source.duration);
     console.log  (comp.selectedLayers[0].numProperties);
    //  console.log  (comp.selectedLayers[0].solidSource.color.value);
     console.log  (comp.selectedLayers[0].source.mainSource.color);
